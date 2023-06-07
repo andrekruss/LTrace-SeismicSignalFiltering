@@ -4,6 +4,7 @@ using SeismicSignalFiltering.Models;
 using SeismicSignalFiltering.Views;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,16 +22,21 @@ namespace SeismicSignalFiltering
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            // Setting raw signal information and the path to raw signal data
             double samplePeriod = 0.004;
             double sampleRate = 1 / samplePeriod;
-            float[] signalData = FileHandler.ReadSignalFile("C:/Users/Andre/Desktop/Andre/LTrace/arquivo.dat");
+            string signalFilePath = @"C:\Users\Andre\Desktop\Andre\LTrace\LTrace\SeismicSignalFiltering\SeismicSignalFiltering\Data\Signal.txt";
+            float[] signalData = FileHandler.ReadSignalFile(signalFilePath);
 
+            // Sets the models, view and controller
             SeismicSignalModel signalModel = new SeismicSignalModel(signalData, sampleRate);
             FilterModel filterModel = new FilterModel(sampleRate);
             IFilteredSignalView filteredSignalView = new FilteredSignalView();
             FilteredSignalController filteredSignalController = new FilteredSignalController(filteredSignalView, signalModel, filterModel);
 
-            Application.Run((Form) filteredSignalView);
+            // Run app with the main view 
+            Application.Run((Form)filteredSignalView);
+            
         }
     }
 }

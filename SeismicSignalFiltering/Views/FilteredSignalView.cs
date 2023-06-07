@@ -10,6 +10,7 @@ using System.Diagnostics;
 
 namespace SeismicSignalFiltering.Views
 {
+    // This interface is used by the controller to interact with the view
     public interface IFilteredSignalView
     {
         // Properties

@@ -69,7 +69,6 @@ namespace SeismicSignalFiltering.Controller
         // Event Methods
         private void FreqBoxChangedHandler(object sender, EventArgs e)
         {
-            // 1º Set Filter Cutoff Frequencies
             double lpfValue;
             double hpfValue;
             bool isLpfValid = double.TryParse(this._view.LpfFreqCutoff, out lpfValue);
