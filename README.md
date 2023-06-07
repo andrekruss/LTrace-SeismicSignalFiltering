@@ -7,3 +7,5 @@ The filtered signal is the result of the raw signal being applied to a LPF (Low 
 can be set with different cutoff frequencies values via two text boxes or sliders.
 The data (Amplitude) for the raw signal can be found in the "Data" folder.
 
+![LTrace](https://github.com/andrekruss/LTrace-SeismicSignalFiltering/assets/30608106/16f6343c-396e-410b-9926-570acaee24ba)
+
