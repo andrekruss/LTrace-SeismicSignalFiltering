@@ -35,13 +35,18 @@ namespace SeismicSignalFiltering.Views
         public FilteredSignalView()
         {
             InitializeComponent();
-            txtLpfFreqCutoff.TextChanged += delegate { FreqBoxChanged?.Invoke(this, EventArgs.Empty); };      
+            AssociateEventsToHandlers();
+        }
+
+        // Methods
+        public void AssociateEventsToHandlers()
+        {
+            txtLpfFreqCutoff.TextChanged += delegate { FreqBoxChanged?.Invoke(this, EventArgs.Empty); };
             txtHpfFreqCutoff.TextChanged += delegate { FreqBoxChanged?.Invoke(this, EventArgs.Empty); };
             trackBarLpfFreqCutoff.ValueChanged += delegate { LpfSliderChanged?.Invoke(this, EventArgs.Empty); };
             trackBarHpfFreqCutoff.ValueChanged += delegate { HpfSliderChanged?.Invoke(this, EventArgs.Empty); };
         }
 
-        // Methods
         public string GetLpfSliderValue()
         {
             return trackBarLpfFreqCutoff.Value.ToString();

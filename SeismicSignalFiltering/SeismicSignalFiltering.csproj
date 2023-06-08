@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\FilteredSignalController.cs" />
+    <Compile Include="Data\SignalData.cs" />
     <Compile Include="Helpers\FileHandler.cs" />
     <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\SeismicSignalModel.cs" />
@@ -114,7 +115,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\Signal.txt" />
     <Content Include="License-LGPL.txt" />
   </ItemGroup>
   <ItemGroup />

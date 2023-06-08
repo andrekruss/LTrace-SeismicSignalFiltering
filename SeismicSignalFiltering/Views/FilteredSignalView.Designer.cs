@@ -49,7 +49,7 @@
             // 
             // txtHpfFreqCutoff
             // 
-            this.txtHpfFreqCutoff.Location = new System.Drawing.Point(33, 158);
+            this.txtHpfFreqCutoff.Location = new System.Drawing.Point(33, 145);
             this.txtHpfFreqCutoff.Name = "txtHpfFreqCutoff";
             this.txtHpfFreqCutoff.Size = new System.Drawing.Size(100, 20);
             this.txtHpfFreqCutoff.TabIndex = 1;
@@ -57,18 +57,20 @@
             // lblLpfFreqCutoff
             // 
             this.lblLpfFreqCutoff.AutoSize = true;
+            this.lblLpfFreqCutoff.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLpfFreqCutoff.Location = new System.Drawing.Point(30, 39);
             this.lblLpfFreqCutoff.Name = "lblLpfFreqCutoff";
-            this.lblLpfFreqCutoff.Size = new System.Drawing.Size(184, 13);
+            this.lblLpfFreqCutoff.Size = new System.Drawing.Size(221, 13);
             this.lblLpfFreqCutoff.TabIndex = 2;
             this.lblLpfFreqCutoff.Text = "Low Pass Filter Frequency Cutoff (Hz)";
             // 
             // lblHpfFreqCutoff
             // 
             this.lblHpfFreqCutoff.AutoSize = true;
+            this.lblHpfFreqCutoff.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHpfFreqCutoff.Location = new System.Drawing.Point(30, 117);
             this.lblHpfFreqCutoff.Name = "lblHpfFreqCutoff";
-            this.lblHpfFreqCutoff.Size = new System.Drawing.Size(186, 13);
+            this.lblHpfFreqCutoff.Size = new System.Drawing.Size(224, 13);
             this.lblHpfFreqCutoff.TabIndex = 3;
             this.lblHpfFreqCutoff.Text = "High Pass Filter Frequency Cutoff (Hz)";
             // 
@@ -99,7 +101,7 @@
             // 
             // trackBarHpfFreqCutoff
             // 
-            this.trackBarHpfFreqCutoff.Location = new System.Drawing.Point(145, 158);
+            this.trackBarHpfFreqCutoff.Location = new System.Drawing.Point(145, 145);
             this.trackBarHpfFreqCutoff.Maximum = 100;
             this.trackBarHpfFreqCutoff.Name = "trackBarHpfFreqCutoff";
             this.trackBarHpfFreqCutoff.Size = new System.Drawing.Size(104, 45);

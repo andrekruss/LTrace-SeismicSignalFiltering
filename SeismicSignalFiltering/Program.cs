@@ -2,6 +2,7 @@
 using SeismicSignalFiltering.Helpers;
 using SeismicSignalFiltering.Models;
 using SeismicSignalFiltering.Views;
+using SeismicSignalFiltering.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,11 +23,12 @@ namespace SeismicSignalFiltering
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Setting raw signal information and the path to raw signal data
+            // Setting raw signal information
             double samplePeriod = 0.004;
             double sampleRate = 1 / samplePeriod;
             string signalFilePath = @"C:\Users\Andre\Desktop\Andre\LTrace\LTrace\SeismicSignalFiltering\SeismicSignalFiltering\Data\Signal.txt";
-            float[] signalData = FileHandler.ReadSignalFile(signalFilePath);
+            //float[] signalData = FileHandler.ReadSignalFile(signalFilePath);
+            float[] signalData = SignalData.GetRawSignalData(); 
 
             // Sets the models, view and controller
             SeismicSignalModel signalModel = new SeismicSignalModel(signalData, sampleRate);

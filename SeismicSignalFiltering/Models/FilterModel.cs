@@ -12,7 +12,7 @@ namespace SeismicSignalFiltering.Models
         public FilterModel() { }
         public FilterModel(double sampleRate)
         {
-            SampleRate= sampleRate;
+            SampleRate = sampleRate;
         }
 
         // Methods

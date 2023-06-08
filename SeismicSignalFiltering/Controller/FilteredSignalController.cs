@@ -30,13 +30,15 @@ namespace SeismicSignalFiltering.Controller
             this._view.HpfSliderChanged += HpfSliderChangedHandler;
             this._view.LpfSliderChanged += LpfSliderChangedHandler;
 
-            // Initializing the graphic with the raw signal
+            // Initializing the graphic with raw signal
             this._view.SetGraphPane(BuildSignalPoints(this._rawSignal.Data, this._rawSignal.SampleRate));
             this._view.HpfFreqCutoff = "0";
             this._view.LpfFreqCutoff = "0";
         }
 
-        // Methods
+        // ---------------- Methods ----------------
+
+        // Helper method to builds a list of (Amplitude, t) points to plot on graph
         public PointPairList BuildSignalPoints(float[] signalData, double samplePeriod)
         {
             double timeValue = 0;
@@ -66,15 +68,17 @@ namespace SeismicSignalFiltering.Controller
             this._filteredSignal.Data = filteredSignal.ToFloat();
         }
 
-        // Event Methods
+        // ---------------- Event Methods ----------------
+
+        // Triggered when one of the text boxes is changed
         private void FreqBoxChangedHandler(object sender, EventArgs e)
         {
             double lpfValue;
             double hpfValue;
-            bool isLpfValid = double.TryParse(this._view.LpfFreqCutoff, out lpfValue);
-            bool isHpfValid = double.TryParse(this._view.HpfFreqCutoff, out hpfValue);
+            bool lpfValid = double.TryParse(this._view.LpfFreqCutoff, out lpfValue);
+            bool hpfValid = double.TryParse(this._view.HpfFreqCutoff, out hpfValue);
 
-            if (isLpfValid && isHpfValid)
+            if (lpfValid && hpfValid)
             {
                 SetLpfParameter(lpfValue);
                 SetHpfParameter(hpfValue);
@@ -84,6 +88,8 @@ namespace SeismicSignalFiltering.Controller
                 this._view.UpdateWaveform(BuildSignalPoints(this._filteredSignal.Data, this._filteredSignal.SampleRate));
             }
         }
+
+        // Triggered when the LPF slider is changed
         private void LpfSliderChangedHandler(object sender, EventArgs e)
         {
             string lpfSliderValue = this._view.GetLpfSliderValue();
@@ -102,6 +108,7 @@ namespace SeismicSignalFiltering.Controller
             }
         }
 
+        // Triggered when the HPF slider is changed
         private void HpfSliderChangedHandler(object sender, EventArgs e)
         {
             string hpfSliderValue = this._view.GetHpfSliderValue();
