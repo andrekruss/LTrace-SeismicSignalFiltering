@@ -21,11 +21,13 @@ namespace SeismicSignalFiltering.Views
         event EventHandler FreqBoxChanged;
         event EventHandler HpfSliderChanged;
         event EventHandler LpfSliderChanged;
+        event EventHandler SaveButtonPressed;
 
         // Methods
         void SetGraphPane(PointPairList rawSignalData);
         void UpdateWaveform(PointPairList signalData);
         void UpdateWaveChart();
+        void SaveWaveforms();
         string GetLpfSliderValue();
         string GetHpfSliderValue();
     }
@@ -45,6 +47,7 @@ namespace SeismicSignalFiltering.Views
             txtHpfFreqCutoff.TextChanged += delegate { FreqBoxChanged?.Invoke(this, EventArgs.Empty); };
             trackBarLpfFreqCutoff.ValueChanged += delegate { LpfSliderChanged?.Invoke(this, EventArgs.Empty); };
             trackBarHpfFreqCutoff.ValueChanged += delegate { HpfSliderChanged?.Invoke(this, EventArgs.Empty); };
+            btnSaveData.Click += delegate { SaveButtonPressed?.Invoke(this, EventArgs.Empty); };
         }
 
         public string GetLpfSliderValue()
@@ -80,6 +83,12 @@ namespace SeismicSignalFiltering.Views
             waveChart.Invalidate();
         }
 
+        public void SaveWaveforms()
+        {
+            var image = waveChart.GetImage();
+            FileHandler.SaveImageFile(image);
+        }
+
         // Properties
         public string LpfFreqCutoff { 
             get => txtLpfFreqCutoff.Text; 
@@ -94,5 +103,6 @@ namespace SeismicSignalFiltering.Views
         public event EventHandler FreqBoxChanged;
         public event EventHandler LpfSliderChanged;
         public event EventHandler HpfSliderChanged;
+        public event EventHandler SaveButtonPressed;
     }
 }

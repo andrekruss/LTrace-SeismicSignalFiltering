@@ -36,6 +36,7 @@
             this.waveChart = new ZedGraph.ZedGraphControl();
             this.trackBarLpfFreqCutoff = new System.Windows.Forms.TrackBar();
             this.trackBarHpfFreqCutoff = new System.Windows.Forms.TrackBar();
+            this.btnSaveData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarLpfFreqCutoff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarHpfFreqCutoff)).BeginInit();
             this.SuspendLayout();
@@ -107,6 +108,16 @@
             this.trackBarHpfFreqCutoff.Size = new System.Drawing.Size(104, 45);
             this.trackBarHpfFreqCutoff.TabIndex = 6;
             // 
+            // btnSaveData
+            // 
+            this.btnSaveData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveData.Location = new System.Drawing.Point(77, 196);
+            this.btnSaveData.Name = "btnSaveData";
+            this.btnSaveData.Size = new System.Drawing.Size(107, 51);
+            this.btnSaveData.TabIndex = 7;
+            this.btnSaveData.Text = "Save";
+            this.btnSaveData.UseVisualStyleBackColor = true;
+            // 
             // FilteredSignalView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,6 +125,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(878, 542);
+            this.Controls.Add(this.btnSaveData);
             this.Controls.Add(this.trackBarHpfFreqCutoff);
             this.Controls.Add(this.trackBarLpfFreqCutoff);
             this.Controls.Add(this.waveChart);
@@ -139,5 +151,6 @@
         private ZedGraph.ZedGraphControl waveChart;
         private System.Windows.Forms.TrackBar trackBarLpfFreqCutoff;
         private System.Windows.Forms.TrackBar trackBarHpfFreqCutoff;
+        private System.Windows.Forms.Button btnSaveData;
     }
 }

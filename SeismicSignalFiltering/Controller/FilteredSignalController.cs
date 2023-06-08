@@ -29,6 +29,7 @@ namespace SeismicSignalFiltering.Controller
             this._view.FreqBoxChanged += FreqBoxChangedHandler;
             this._view.HpfSliderChanged += HpfSliderChangedHandler;
             this._view.LpfSliderChanged += LpfSliderChangedHandler;
+            this._view.SaveButtonPressed += SaveButtonPressedHandler;
 
             // Initializing the graphic with raw signal
             this._view.SetGraphPane(BuildSignalPoints(this._rawSignal.Data, this._rawSignal.SampleRate));
@@ -125,6 +126,12 @@ namespace SeismicSignalFiltering.Controller
                 SetLpfParameter(lpfValue);
                 FilterSignal();
             }
+        }
+
+        // Triggered when Save button is pressed
+        private void SaveButtonPressedHandler(object sender, EventArgs e)
+        {
+            this._view.SaveWaveforms();
         }
 
     }
