@@ -86,6 +86,7 @@ namespace SeismicSignalFiltering.Controller
                 FilterSignal();
 
                 // update view
+                this._view.UpdateWaveformLabels();
                 this._view.UpdateWaveform(BuildSignalPoints(this._filteredSignal.Data, this._filteredSignal.SampleRate));
             }
         }

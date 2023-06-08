@@ -26,6 +26,7 @@ namespace SeismicSignalFiltering.Views
         // Methods
         void SetGraphPane(PointPairList rawSignalData);
         void UpdateWaveform(PointPairList signalData);
+        void UpdateWaveformLabels();
         void UpdateWaveChart();
         void SaveWaveforms();
         string GetLpfSliderValue();
@@ -64,10 +65,49 @@ namespace SeismicSignalFiltering.Views
             waveChart.GraphPane.Title.Text = "Formas de Onda";
             waveChart.GraphPane.XAxis.Title.Text = "Amplitude";
             waveChart.GraphPane.YAxis.Title.Text = "Tempo(ms)";
+
             LineItem rawSignalCurve = waveChart.GraphPane.AddCurve("Sismica Original", rawSignalData, Color.Blue, SymbolType.None);
             LineItem filteredSignalCurve = waveChart.GraphPane.AddCurve("Sismica Filtrada", new PointPairList(), Color.Red, SymbolType.None);
+
+            TextObj lpfLabel = new TextObj("lpfCutoff = 0 Hz", 0.80, 0.05, CoordType.ChartFraction);
+            lpfLabel.FontSpec.Size = 14;
+            lpfLabel.FontSpec.Border.IsVisible = false;
+            lpfLabel.FontSpec.Fill.IsVisible = false;
+            lpfLabel.Tag = "lpf";
+
+            TextObj hpfLabel = new TextObj("hpfCutoff = 0 Hz", 0.80, 0.10, CoordType.ChartFraction);
+            hpfLabel.FontSpec.Size = 14;
+            hpfLabel.FontSpec.Border.IsVisible = false;
+            hpfLabel.FontSpec.Fill.IsVisible = false;
+            hpfLabel.Tag = "hpf";
+
+            waveChart.GraphPane.GraphObjList.Add(hpfLabel);
+            waveChart.GraphPane.GraphObjList.Add(lpfLabel);
+
             waveChart.AxisChange();
             UpdateWaveChart();
+        }
+
+        public void UpdateWaveformLabels()
+        {
+            GraphObjList graphObjList = waveChart.GraphPane.GraphObjList;
+
+            foreach (GraphObj graphObj in graphObjList)
+            {
+                if (graphObj is TextObj label)
+                {
+                    if (label.Tag.ToString() == "lpf")
+                    {
+                        var value = txtLpfFreqCutoff.Text;
+                        label.Text = $"lpfCutoff = {value} Hz";
+                    }
+                    else if(label.Tag.ToString() == "hpf")
+                    {
+                        var value = txtHpfFreqCutoff.Text;
+                        label.Text = $"hpfCutoff = {value} Hz";
+                    }
+                }
+            }
         }
 
         public void UpdateWaveform(PointPairList signalData)
